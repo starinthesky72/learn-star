@@ -24,8 +24,9 @@ References:
 import argparse
 import logging
 import sys
-from importlib.metadata import version  # pragma: no cover
 from typing import List
+
+import pkg_resources
 
 _logger = logging.getLogger(__name__)
 
@@ -72,7 +73,9 @@ def parse_args(args: List[str]) -> argparse.Namespace:
     parser.add_argument(
         '--version',
         action='version',
-        version='mypackage {ver}'.format(ver=version(__name__)),
+        version='mypackage {ver}'.format(
+            ver=pkg_resources.get_distribution('mypackage').version,
+        ),
     )
     parser.add_argument(
         dest='n',
