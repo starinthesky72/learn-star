@@ -6,4 +6,3 @@ def star(name: str) -> str:
     :returns: the output description.
     """
     return 'name: {0}'.format(name)
-
