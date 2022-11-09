@@ -67,14 +67,19 @@ def parse_args(args: List[str]) -> argparse.Namespace:
     :return: command line parameters namespace
     """
     parser = argparse.ArgumentParser(
-        description='Just a Fibonacci demonstration')
+        description='Just a Fibonacci demonstration',
+    )
     parser.add_argument(
         '--version',
         action='version',
         version='mypackage {ver}'.format(ver=version(__name__)),
     )
-    parser.add_argument(dest='n', help='n-th Fibonacci number', type=int,
-                        metavar='INT')
+    parser.add_argument(
+        dest='n',
+        help='n-th Fibonacci number',
+        type=int,
+        metavar='INT',
+    )
     parser.add_argument(
         '-v',
         '--verbose',
@@ -119,7 +124,8 @@ def main(args):
     _logger.debug('Starting crazy calculations...')
     fib_result = fib(args.n)
     _logger.info(
-        'The {0}-th Fibonacci number is {1}'.format(args.n, fib_result))
+        'The {0}-th Fibonacci number is {1}'.format(args.n, fib_result),
+    )
     _logger.info('Script ends here')
 
 
