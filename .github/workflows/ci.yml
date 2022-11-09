@@ -33,10 +33,8 @@ jobs:
         with: {fetch-depth: 0}  # deep clone for setuptools-scm
       - uses: actions/setup-python@v3
         with: {python-version: "3.10"}
-      - name: Install flake8
-        run: pip install flake8
-      - name: Run static analysis and format checkers
-        run: pipx run pre-commit run --all-files --show-diff-on-failure
+      - name: wemake-python-styleguide
+        uses: wemake-services/wemake-python-styleguide@0.17.0
       - name: Build package distribution files
         run: pipx run tox -e clean,build
       - name: Record the path of wheel distribution
@@ -56,8 +54,8 @@ jobs:
     strategy:
       matrix:
         python:
-        - "3.7"  # oldest Python supported by PSF
-        - "3.10"  # newest Python that is stable
+        - "3.8"
+        - "3.10"
         platform:
         - ubuntu-latest
         - macos-latest
