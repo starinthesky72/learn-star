@@ -1,9 +1,2 @@
-def __init__(self, log_file_name, xyz_file_name, restart=False):
-    self.log_file_object = open(log_file_name, 'r')
-    self.xyz_file_object = open(xyz_file_name, 'r')
-    self.log_block_generator = self.get_log_block_generator()
-    self.xyz_block_generator = self.get_xyz_block_generator()
-    self.restart_flag = restart
-    self.cell = None
-    self.print_level = None
-    self.atomic_kinds = None
+def star():
+    print("Study Hard!!!")
