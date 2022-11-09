@@ -45,6 +45,9 @@ A longer description of your project goes here...
 Making Changes & Contributing
 =============================
 
+pre-commit
+----------
+
 This project uses `pre-commit`_, please make sure to install it before making any
 changes::
 
@@ -59,6 +62,16 @@ It is a good idea to update the hooks to the latest version::
 Don't forget to tell your contributors to also install and use pre-commit.
 
 .. _pre-commit: https://pre-commit.com/
+
+pytest and coverage
+-------------------
+
+This project uses `pytest` and `coverage` to establish unittest. Commonly one doesn't
+need to run it locally, but if you wish, please install them::
+    
+    pip install pytest pytest-coverage
+    
+Use conda as you wish and it also works in most IDEs.
 
 Note
 ====

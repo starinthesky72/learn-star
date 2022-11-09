@@ -24,8 +24,9 @@ References:
 import argparse
 import logging
 import sys
-from importlib.metadata import version  # pragma: no cover
 from typing import List
+
+import pkg_resources
 
 _logger = logging.getLogger(__name__)
 
@@ -67,14 +68,21 @@ def parse_args(args: List[str]) -> argparse.Namespace:
     :return: command line parameters namespace
     """
     parser = argparse.ArgumentParser(
-        description='Just a Fibonacci demonstration')
+        description='Just a Fibonacci demonstration',
+    )
     parser.add_argument(
         '--version',
         action='version',
-        version='mypackage {ver}'.format(ver=version(__name__)),
+        version='mypackage {ver}'.format(
+            ver=pkg_resources.get_distribution('mypackage').version,
+        ),
     )
-    parser.add_argument(dest='n', help='n-th Fibonacci number', type=int,
-                        metavar='INT')
+    parser.add_argument(
+        dest='n',
+        help='n-th Fibonacci number',
+        type=int,
+        metavar='INT',
+    )
     parser.add_argument(
         '-v',
         '--verbose',
@@ -119,7 +127,8 @@ def main(args):
     _logger.debug('Starting crazy calculations...')
     fib_result = fib(args.n)
     _logger.info(
-        'The {0}-th Fibonacci number is {1}'.format(args.n, fib_result))
+        'The {0}-th Fibonacci number is {1}'.format(args.n, fib_result),
+    )
     _logger.info('Script ends here')
 
 
